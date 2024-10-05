@@ -22,6 +22,6 @@ pip install --editable .
 
 ## Further Information
 
-If you are interested in wood science and the application of advanced computed tomography imaging and deep learning to it, you may find our paper manuscript (TODO: LINK) and the [`woodnet`]() pipeline implementation useful.
+If you are interested in wood science and the application of advanced computed tomography imaging and deep learning to it, you may find our paper manuscript (TODO: LINK) and the [`woodnet`](https://github.com/stebix/woodnet) pipeline implementation useful.
 
 2024 Jannik Stebani
