@@ -29,6 +29,7 @@ dependencies = [
   "matplotlib",
   "k3d",
   "ipywidgets",
+  "ipympl",
   "zarr",
   "h5py"
 ]
