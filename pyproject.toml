@@ -25,8 +25,9 @@ license = {file = "LICENSE.txt"}
 keywords = ["tooling", "jupyter", "visualization", "widget"]
 
 dependencies = [
-  "matplotlib",
   "numpy",
+  "matplotlib",
+  "k3d",
   "ipywidgets",
   "zarr",
   "h5py"
