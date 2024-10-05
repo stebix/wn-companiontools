@@ -15,7 +15,7 @@ You can first pull the repository to a location of your desire.
 ```bash
 git pull INSERTHERE
 ```
-Then install the code via `pip` in editable mode.
+Then - assuming the current working directory is the pulled repository - install the code via `pip` in editable mode.
 ```bash
 pip install --editable .
 ```
