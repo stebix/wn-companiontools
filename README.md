@@ -19,7 +19,7 @@ Then - assuming the current working directory is the pulled repository - install
 ```bash
 pip install --editable .
 ```
-> [! TIP]
+> [!TIP]
 > If you are using `conda` or `mamba` to manage your Python environments and packages, then it can be inadvisable to let `pip` install packages on its own (see e.g. [here](https://www.anaconda.com/blog/using-pip-in-a-conda-environment)).
 > In this case, install the necessary dependencies manually via `conda/mamba` and add the `--no-deps` command to the above `pip install` command to inhibit `pip` installations.
 
