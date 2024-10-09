@@ -26,7 +26,7 @@ pip install --editable .
 
 ### Dependencies
 
-The code has these dependencies that can also be isntalled via `conda` or `mamba`:
+The code has these dependencies that can also be installed via `conda` or `mamba`:
 ```bash
 conda install -c conda-forge numpy matplotlib k3d ipywidgets zarr h5py ipympl
 ```
