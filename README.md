@@ -4,10 +4,11 @@
 ## Introduction
 
 This repository is a collection of companion tooling for our `woodnet` deep learning pipeline and paper project.
-It encompasses three main purposes:
-- provide visualization code for rendering volumetric scans from the described advanced sub-$\mathrm{\mu}$-CT imaging modality
-- provide download helper code to collect accompaniying data from the Zenodo upload
-- demo code for performing an automated prediction 🤖
+It encompasses the following main purposes:
+- provide visualization code and infrastructure for the described advanced sub-µ-CT imaging modality
+  - planar visualizations with interactive widget controls $\rightarrow$ `SliceDisplay` class
+  - volumetric visualizations with interactive widget controls $\rightarrow$ `VolumeDisplay` class
+- data helper code performing an automated prediction 🤖
 
 ## Installation
 
