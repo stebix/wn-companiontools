@@ -4,6 +4,7 @@ with k3d and ipywidgets in the context of jupyter notebooks.
 
 @Author: Jannik Stebani, 2024
 """
+from collections.abc import Sequence
 from typing import Mapping
 import numpy as np
 import ipywidgets as wgt
@@ -82,6 +83,13 @@ class VolumeDisplay:
     data : np.ndarray
         The 3D data array to be visualized.
 
+
+    bounds : Sequence[int] | None, optional
+        Specify the grid size of the volume visualization in x, y, z dimensions.
+        By default, the volume are a grid inscribed in the -0.5 < x, y, z < 0.5
+        cube regardless of the passed voxel array shape, like aspect ratio.
+
+
     Attributes
     ----------
 
@@ -104,9 +112,9 @@ class VolumeDisplay:
     DEFAULT_ALPHA_COEF: float = 50
     DEFAULT_COLORMAP_NAME: str = 'jet'
     
-    def __init__(self, data: np.ndarray) -> None:
+    def __init__(self, data: np.ndarray, bounds: Sequence[int] | None = None) -> None:
         self.data = data
-        self.volume = self.build_volume(self.data)
+        self.volume = self.build_volume(self.data, bounds=bounds)
         self.plot = self.create_plot()
         # set up slider
         slider = create_windowing_slider(self.data, initial_value=self.DEFAULT_WINDOW_LEVELS_3D)
@@ -119,17 +127,20 @@ class VolumeDisplay:
                      data: np.ndarray,
                      color_range: tuple[float, float] | None = None,
                      alpha_coef: float | None = None,
-                     color_map_name: str | None = None):
+                     color_map_name: str | None = None,
+                     bounds: Sequence[int] | None = None
+                     ) -> k3d.objects.Volume:
         """
         Create a `k3d` volume drawable from input parameters and class variables (defaults).
         """
         color_range = color_range or self.DEFAULT_WINDOW_LEVELS_3D
         alpha_coef = alpha_coef or self.DEFAULT_ALPHA_COEF
         color_map_name = color_map_name or self.DEFAULT_COLORMAP_NAME
+        kwargs = {} if bounds is None else dict(bounds=bounds)
         # convert to actual numerical table
         color_map = COLORMAPS[color_map_name]
         plot_volume = k3d.volume(data, color_range=color_range, alpha_coef=alpha_coef,
-                                 color_map=color_map)
+                                 color_map=color_map, **kwargs)
         return plot_volume
     
     
